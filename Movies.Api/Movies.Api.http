@@ -1,9 +1,9 @@
-@Movies.Api_HostAddress = http://localhost:5074
+@HostUri = http://localhost:5074
 
 ###
 # group: Identity
 # @name Token Generator
-POST {{Movies.Api_HostAddress}}/token
+POST {{HostUri}}/token
 Content-Type: application/json
 
 {
@@ -18,7 +18,7 @@ Content-Type: application/json
 ###
 # group: Movies
 # @name Create movie
-POST {{Movies.Api_HostAddress}}/api/movies
+POST {{HostUri}}/api/movies
 Content-Type: application/json
 
 {
@@ -32,17 +32,17 @@ Content-Type: application/json
 ###
 # group: Movies
 # @name Get movie
-GET {{Movies.Api_HostAddress}}/api/movies/
+GET {{HostUri}}/api/movies/
 
 ###
 # group: Movies
 # @name Get all movies
-GET {{Movies.Api_HostAddress}}/api/movies
+GET {{HostUri}}/api/movies
 
 ###
 # group: Movies
 # @name Update movie
-PUT {{Movies.Api_HostAddress}}/api/movies/{id}
+PUT {{HostUri}}/api/movies/{id}
 Content-Type: application/json
 
 {
@@ -57,12 +57,12 @@ Content-Type: application/json
 ###
 # group: Movies
 # @name Delete movie
-DELETE {{Movies.Api_HostAddress}}/api/movies/{id}
+DELETE {{HostUri}}/api/movies/{id}
 
 ###
 # group: Ratings
 # @name Rate movie
-PUT {{Movies.Api_HostAddress}}/api/movies/{id}/ratings
+PUT {{HostUri}}/api/movies/{id}/ratings
 Content-Type: application/json
 
 {
@@ -72,9 +72,9 @@ Content-Type: application/json
 ###
 # group: Ratings
 # @name Get my ratings
-GET {{Movies.Api_HostAddress}}/api/ratings/me
+GET {{HostUri}}/api/ratings/me
 
 ###
 # group: Ratings
 # @name Delete rating
-DELETE {{Movies.Api_HostAddress}}/api/movies/{id}/ratings
+DELETE {{HostUri}}/api/movies/{id}/ratings
