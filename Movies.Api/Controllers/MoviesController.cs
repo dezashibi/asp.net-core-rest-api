@@ -22,6 +22,25 @@ public class MoviesController : ControllerBase
 
         await _movieRepository.CreateAsync(movie);
 
-        return Created($"/{ApiEndpoints.Movies.CREATE}/{movie.Id}", movie); // TODO:: for now, it must use contracts
+        return Created($"/{ApiEndpoints.Movies.CREATE}/{movie.Id}", movie.MapToResponse());
+    }
+
+    [HttpGet(ApiEndpoints.Movies.GET)]
+    public async Task<IActionResult> Get([FromRoute] Guid id)
+    {
+        var movie = await _movieRepository.GetByIdAsync(id);
+        if (movie is null)
+        {
+            return NotFound();
+        }
+
+        return Ok(movie.MapToResponse());
+    }
+
+    [HttpGet(ApiEndpoints.Movies.GET_ALL)]
+    public async Task<IActionResult> GetAll()
+    {
+        var movies = await _movieRepository.GetAllAsync();
+        return Ok(movies.MapToResponse());
     }
 }

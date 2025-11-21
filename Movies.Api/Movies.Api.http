@@ -32,7 +32,7 @@ Content-Type: application/json
 ###
 # group: Movies
 # @name Get movie
-GET {{HostUri}}/api/movies/
+GET {{HostUri}}/api/movies/-- ADD ID HERE --
 
 ###
 # group: Movies

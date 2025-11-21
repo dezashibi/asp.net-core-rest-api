@@ -7,6 +7,9 @@ public static class ApiEndpoints
     public static class Movies
     {
         private const string BASE = $"{API_BASE}/movies";
+
         public const string CREATE = BASE;
+        public const string GET = $"{BASE}/{{id:guid}}";
+        public const string GET_ALL = BASE;
     }
 }
