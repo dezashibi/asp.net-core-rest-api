@@ -1,5 +1,7 @@
 @HostUri = http://localhost:5074
 
+@MovieId = -- ADD ID HERE FOR TESTING --
+
 ###
 # group: Identity
 # @name Token Generator
@@ -32,7 +34,7 @@ Content-Type: application/json
 ###
 # group: Movies
 # @name Get movie
-GET {{HostUri}}/api/movies/-- ADD ID HERE --
+GET {{HostUri}}/api/movies/{{MovieId}}
 
 ###
 # group: Movies
@@ -42,7 +44,7 @@ GET {{HostUri}}/api/movies
 ###
 # group: Movies
 # @name Update movie
-PUT {{HostUri}}/api/movies/{id}
+PUT {{HostUri}}/api/movies/{{MovieId}}
 Content-Type: application/json
 
 {
@@ -57,12 +59,12 @@ Content-Type: application/json
 ###
 # group: Movies
 # @name Delete movie
-DELETE {{HostUri}}/api/movies/{id}
+DELETE {{HostUri}}/api/movies/{{MovieId}}
 
 ###
 # group: Ratings
 # @name Rate movie
-PUT {{HostUri}}/api/movies/{id}/ratings
+PUT {{HostUri}}/api/movies/{{MovieId}}/ratings
 Content-Type: application/json
 
 {
@@ -77,4 +79,4 @@ GET {{HostUri}}/api/ratings/me
 ###
 # group: Ratings
 # @name Delete rating
-DELETE {{HostUri}}/api/movies/{id}/ratings
+DELETE {{HostUri}}/api/movies/{{MovieId}}/ratings
