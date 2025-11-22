@@ -28,6 +28,7 @@ public class MoviesController : ControllerBase
         return CreatedAtAction(nameof(Get), new { idOrSlug = movie.Id }, movie);
     }
 
+    [Authorize]
     [HttpGet(ApiEndpoints.Movies.GET)]
     public async Task<IActionResult> Get([FromRoute] string idOrSlug, CancellationToken token)
     {
@@ -45,6 +46,7 @@ public class MoviesController : ControllerBase
         return Ok(movie.MapToResponse());
     }
 
+    [Authorize]
     [HttpGet(ApiEndpoints.Movies.GET_ALL)]
     public async Task<IActionResult> GetAll(CancellationToken token)
     {

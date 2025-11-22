@@ -1,10 +1,10 @@
 @HostUri = http://localhost:5074
 @IdentityHost = http://localhost:5002
 
-@MovieId = --
+@MovieId = f5ea6ecd-c352-456c-aad8-d42b559e2c48
 @Slug = --
 
-@AuthToken = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiJkYTIyNjUyMC01MTZlLTQyODQtODExZi03MWIzYmMwNDI0OTciLCJzdWIiOiJzb21lb25lQHNvbWVkb21haW4uY29tIiwiZW1haWwiOiJzb21lb25lQHNvbWVkb21haW4uY29tIiwidXNlcmlkIjoiZDg1NjZkZTMtYjFhNi00YTliLWI4NDItOGUzODg3YTgyZTQxIiwiYWRtaW4iOnRydWUsInRydXN0ZWRfbWVtYmVyIjp0cnVlLCJuYmYiOjE3NjM4MDQyNTMsImV4cCI6MTc2MzgzMzA1MywiaWF0IjoxNzYzODA0MjUzLCJpc3MiOiJodHRwczovL2lkLnNvbWVwcm92aWRlci5jb20iLCJhdWQiOiJodHRwczovL21vdmllcy5zb21lZG9tYWluLmNvbSJ9.qRI7e-RFX8BYFkI-u2w3fEi0W8rYRsgpNLWK3fpX3Ko
+@AuthToken = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiJmNjUyMGMwNS0zZmQ2LTQ1ZmEtYjQzYi02ZTcyNTc5NmE5M2QiLCJzdWIiOiJzb21lb25lQHNvbWVkb21haW4uY29tIiwiZW1haWwiOiJzb21lb25lQHNvbWVkb21haW4uY29tIiwidXNlcmlkIjoiZDg1NjZkZTMtYjFhNi00YTliLWI4NDItOGUzODg3YTgyZTQxIiwiYWRtaW4iOnRydWUsInRydXN0ZWRfbWVtYmVyIjp0cnVlLCJuYmYiOjE3NjM4MDc3MDYsImV4cCI6MTc2MzgzNjUwNiwiaWF0IjoxNzYzODA3NzA2LCJpc3MiOiJodHRwczovL2lkLnNvbWVwcm92aWRlci5jb20iLCJhdWQiOiJodHRwczovL21vdmllcy5zb21lZG9tYWluLmNvbSJ9.n6t7sXm8mtIIO1ULO9zi4b_n_FpBBZiP3cD862yPuRI
 
 ###
 # group: Identity
@@ -41,16 +41,19 @@ Authorization: Bearer {{AuthToken}}
 # group: Movies
 # @name Get movie by Id
 GET {{HostUri}}/api/movies/{{MovieId}}
+Authorization: Bearer {{AuthToken}}
 
 ###
 # group: Movies
 # @name Get movie by Slug
 GET {{HostUri}}/api/movies/{{Slug}}
+Authorization: Bearer {{AuthToken}}
 
 ###
 # group: Movies
 # @name Get all movies
 GET {{HostUri}}/api/movies
+Authorization: Bearer {{AuthToken}}
 
 ###
 # group: Movies
@@ -82,7 +85,7 @@ Content-Type: application/json
 Authorization: Bearer {{AuthToken}}
 
 {
-  "rating": 5
+  "rating": 4
 }
 
 ###
