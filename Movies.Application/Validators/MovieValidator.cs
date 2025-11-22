@@ -25,13 +25,13 @@ public class MovieValidator : AbstractValidator<Movie>
             .LessThanOrEqualTo(DateTime.UtcNow.Year);
 
         RuleFor(x => x.Slug)
-            .MustAsync(ValidateSlut)
+            .MustAsync(ValidateSlug)
             .WithMessage("This movie already exists in the system");
     }
 
-    private async Task<bool> ValidateSlut(Movie movie, string slug, CancellationToken token)
+    private async Task<bool> ValidateSlug(Movie movie, string slug, CancellationToken token)
     {
-        var existingMovie = await _movieRepository.GetBySlugAsync(slug, token);
+        var existingMovie = await _movieRepository.GetBySlugAsync(slug, null, token);
 
         if (existingMovie is not null)
         {
