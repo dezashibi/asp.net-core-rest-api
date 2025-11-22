@@ -1,12 +1,16 @@
 @HostUri = http://localhost:5074
+@IdentityHost = http://localhost:5002
 
-@MovieId = -- ADD ID HERE FOR TESTING --
+@MovieId = 7601a800-f594-467e-ab12-2640291cae0a
 @Slug = -- ADD SLUG HERE FOR TESTING --
+
+@AuthToken = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiI2ZjA2ZmQ1NC1mNTg0LTRlM2UtOWFlNi04NmYwZDdlYTIyZTMiLCJzdWIiOiJzb21lb25lQHNvbWVkb21haW4uY29tIiwiZW1haWwiOiJzb21lb25lQHNvbWVkb21haW4uY29tIiwidXNlcmlkIjoiZDg1NjZkZTMtYjFhNi00YTliLWI4NDItOGUzODg3YTgyZTQxIiwiYWRtaW4iOnRydWUsInRydXN0ZWRfbWVtYmVyIjp0cnVlLCJuYmYiOjE3NjM3OTg4NTAsImV4cCI6MTc2MzgyNzY1MCwiaWF0IjoxNzYzNzk4ODUwLCJpc3MiOiJodHRwczovL2lkLnNvbWVwcm92aWRlci5jb20iLCJhdWQiOiJodHRwczovL21vdmllcy5zb21lZG9tYWluLmNvbSJ9.W0LY7KyODy4SJpEehS-mQgPlTTRufCsirrzvr3oYoSk
 
 ###
 # group: Identity
+# 👉 NOTE: Run Identity.Api project separately in order to use it 
 # @name Token Generator
-POST {{HostUri}}/token
+POST {{IdentityHost}}/token
 Content-Type: application/json
 
 {
@@ -23,6 +27,7 @@ Content-Type: application/json
 # @name Create movie
 POST {{HostUri}}/api/movies
 Content-Type: application/json
+Authorization: Bearer {{AuthToken}}
 
 {
   "Title": "Some movie name",
@@ -52,6 +57,7 @@ GET {{HostUri}}/api/movies
 # @name Update movie
 PUT {{HostUri}}/api/movies/{{MovieId}}
 Content-Type: application/json
+Authorization: Bearer {{AuthToken}}
 
 {
   "Title": "Some movie name",
@@ -66,12 +72,14 @@ Content-Type: application/json
 # group: Movies
 # @name Delete movie
 DELETE {{HostUri}}/api/movies/{{MovieId}}
+Authorization: Bearer {{AuthToken}}
 
 ###
 # group: Ratings
 # @name Rate movie
 PUT {{HostUri}}/api/movies/{{MovieId}}/ratings
 Content-Type: application/json
+Authorization: Bearer {{AuthToken}}
 
 {
   "rating": 5
@@ -81,8 +89,10 @@ Content-Type: application/json
 # group: Ratings
 # @name Get my ratings
 GET {{HostUri}}/api/ratings/me
+Authorization: Bearer {{AuthToken}}
 
 ###
 # group: Ratings
 # @name Delete rating
 DELETE {{HostUri}}/api/movies/{{MovieId}}/ratings
+Authorization: Bearer {{AuthToken}}
