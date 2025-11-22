@@ -1,3 +1,4 @@
+using Asp.Versioning;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Movies.Api.Auth;
@@ -17,6 +18,7 @@ public class MoviesController : ControllerBase
         _movieService = movieService;
     }
 
+    [ApiVersion(1.0)]
     [Authorize(AuthConstants.TRUSTED_MEMBER_POLICY_NAME)]
     [HttpPost(ApiEndpoints.Movies.CREATE)]
     public async Task<IActionResult> Create([FromBody] CreateMovieRequest request, CancellationToken token)
@@ -28,6 +30,7 @@ public class MoviesController : ControllerBase
         return CreatedAtAction(nameof(Get), new { idOrSlug = movie.Id }, movie);
     }
 
+    [ApiVersion(1.0)]
     [Authorize]
     [HttpGet(ApiEndpoints.Movies.GET)]
     public async Task<IActionResult> Get([FromRoute] string idOrSlug, CancellationToken token)
@@ -46,6 +49,29 @@ public class MoviesController : ControllerBase
         return Ok(movie.MapToResponse());
     }
 
+    [ApiVersion(2.0)]
+    [Authorize]
+    [HttpGet(ApiEndpoints.Movies.GET)]
+    public async Task<IActionResult> GetV2([FromRoute] string idOrSlug, CancellationToken token)
+    {
+        /* Some newer stuff here in version 2 is happening! */
+        Console.WriteLine("Version 2");
+
+        var userId = HttpContext.GetUserId();
+
+        var movie = Guid.TryParse(idOrSlug, out var id)
+            ? await _movieService.GetByIdAsync(id, userId, token)
+            : await _movieService.GetBySlugAsync(idOrSlug, userId, token);
+
+        if (movie is null)
+        {
+            return NotFound();
+        }
+
+        return Ok(movie.MapToResponse());
+    }
+
+    [ApiVersion(1.0)]
     [Authorize]
     [HttpGet(ApiEndpoints.Movies.GET_ALL)]
     public async Task<IActionResult> GetAll([FromQuery] GetAllMoviesRequest request, CancellationToken token)
@@ -58,6 +84,23 @@ public class MoviesController : ControllerBase
         return Ok(movies.MapToResponse(request.Page, request.PageSize, moviesCount));
     }
 
+    [ApiVersion(2.0)]
+    [Authorize]
+    [HttpGet(ApiEndpoints.Movies.GET_ALL)]
+    public async Task<IActionResult> GetAllV2([FromQuery] GetAllMoviesRequest request, CancellationToken token)
+    {
+        /* Some newer stuff here in version 2 is happening! */
+        Console.WriteLine("Version 2");
+
+        var userId = HttpContext.GetUserId();
+        var options = request.MapToOptions()
+            .WithUser(userId);
+        var movies = await _movieService.GetAllAsync(options, token);
+        var moviesCount = await _movieService.GetCountAsync(options.Title, options.YearOfRelease, token);
+        return Ok(movies.MapToResponse(request.Page, request.PageSize, moviesCount));
+    }
+
+    [ApiVersion(1.0)]
     [Authorize(AuthConstants.TRUSTED_MEMBER_POLICY_NAME)]
     [HttpPut(ApiEndpoints.Movies.UPDATE)]
     public async Task<IActionResult> Update([FromRoute] Guid id, [FromBody] UpdateMovieRequest request, CancellationToken token)
@@ -73,6 +116,7 @@ public class MoviesController : ControllerBase
         return Ok(updatedMovie.MapToResponse());
     }
 
+    [ApiVersion(1.0)]
     [Authorize(AuthConstants.ADMIN_USER_POLICY_NAME)]
     [HttpDelete(ApiEndpoints.Movies.DELETE)]
     public async Task<IActionResult> Delete([FromRoute] Guid id, CancellationToken token)

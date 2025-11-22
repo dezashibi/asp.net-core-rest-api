@@ -58,6 +58,12 @@ Authorization: Bearer {{AuthToken}}
 
 ###
 # group: Movies
+# @name Get all movies v2
+GET {{HostUri}}/api/movies?api-version=2.0
+Authorization: Bearer {{AuthToken}}
+
+###
+# group: Movies
 # @name Get all movies with filter
 GET {{HostUri}}/api/movies?title=2
 Authorization: Bearer {{AuthToken}}
