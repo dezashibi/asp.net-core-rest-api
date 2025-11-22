@@ -50,6 +50,8 @@ builder.Services.AddApiVersioning(x =>
     x.ReportApiVersions = true;
 }).AddMvc();
 
+builder.Services.AddResponseCaching();
+
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
@@ -69,6 +71,9 @@ app.UseHttpsRedirection();
 
 app.UseAuthentication();
 app.UseAuthorization();
+
+// app.UseCors(); // this should be before caching
+app.UseResponseCaching();
 
 app.UseMiddleware<ValidationMappingMiddleware>();
 
