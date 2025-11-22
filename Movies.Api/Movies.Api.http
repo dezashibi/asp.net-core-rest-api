@@ -1,7 +1,7 @@
 @HostUri = http://localhost:5074
 @IdentityHost = http://localhost:5002
 
-@MovieId = f5ea6ecd-c352-456c-aad8-d42b559e2c48
+@MovieId = 09c17d3b-744d-4a14-bf0a-1c2d2ffa6f48
 @Slug = --
 
 @AuthToken = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiJmNjUyMGMwNS0zZmQ2LTQ1ZmEtYjQzYi02ZTcyNTc5NmE5M2QiLCJzdWIiOiJzb21lb25lQHNvbWVkb21haW4uY29tIiwiZW1haWwiOiJzb21lb25lQHNvbWVkb21haW4uY29tIiwidXNlcmlkIjoiZDg1NjZkZTMtYjFhNi00YTliLWI4NDItOGUzODg3YTgyZTQxIiwiYWRtaW4iOnRydWUsInRydXN0ZWRfbWVtYmVyIjp0cnVlLCJuYmYiOjE3NjM4MDc3MDYsImV4cCI6MTc2MzgzNjUwNiwiaWF0IjoxNzYzODA3NzA2LCJpc3MiOiJodHRwczovL2lkLnNvbWVwcm92aWRlci5jb20iLCJhdWQiOiJodHRwczovL21vdmllcy5zb21lZG9tYWluLmNvbSJ9.n6t7sXm8mtIIO1ULO9zi4b_n_FpBBZiP3cD862yPuRI
@@ -30,8 +30,8 @@ Content-Type: application/json
 Authorization: Bearer {{AuthToken}}
 
 {
-  "Title": "Some movie name",
-  "YearOfRelease": 2023,
+  "Title": "Some movie name 2",
+  "YearOfRelease": 2024,
   "Genres": [
     "Comedy"
   ]
@@ -85,7 +85,7 @@ Content-Type: application/json
 Authorization: Bearer {{AuthToken}}
 
 {
-  "rating": 4
+  "rating": 1
 }
 
 ###
