@@ -1,10 +1,10 @@
 @HostUri = http://localhost:5074
 @IdentityHost = http://localhost:5002
 
-@MovieId = 7601a800-f594-467e-ab12-2640291cae0a
-@Slug = -- ADD SLUG HERE FOR TESTING --
+@MovieId = --
+@Slug = --
 
-@AuthToken = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiI2ZjA2ZmQ1NC1mNTg0LTRlM2UtOWFlNi04NmYwZDdlYTIyZTMiLCJzdWIiOiJzb21lb25lQHNvbWVkb21haW4uY29tIiwiZW1haWwiOiJzb21lb25lQHNvbWVkb21haW4uY29tIiwidXNlcmlkIjoiZDg1NjZkZTMtYjFhNi00YTliLWI4NDItOGUzODg3YTgyZTQxIiwiYWRtaW4iOnRydWUsInRydXN0ZWRfbWVtYmVyIjp0cnVlLCJuYmYiOjE3NjM3OTg4NTAsImV4cCI6MTc2MzgyNzY1MCwiaWF0IjoxNzYzNzk4ODUwLCJpc3MiOiJodHRwczovL2lkLnNvbWVwcm92aWRlci5jb20iLCJhdWQiOiJodHRwczovL21vdmllcy5zb21lZG9tYWluLmNvbSJ9.W0LY7KyODy4SJpEehS-mQgPlTTRufCsirrzvr3oYoSk
+@AuthToken = --
 
 ###
 # group: Identity
