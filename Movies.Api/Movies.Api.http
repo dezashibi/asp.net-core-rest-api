@@ -4,6 +4,7 @@
 @MovieId = 09c17d3b-744d-4a14-bf0a-1c2d2ffa6f48
 @Slug = --
 
+# 👉 NOTE: Run Identity.Api project, user the token generator request and update the token in here 👇
 @AuthToken = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiJmNjUyMGMwNS0zZmQ2LTQ1ZmEtYjQzYi02ZTcyNTc5NmE5M2QiLCJzdWIiOiJzb21lb25lQHNvbWVkb21haW4uY29tIiwiZW1haWwiOiJzb21lb25lQHNvbWVkb21haW4uY29tIiwidXNlcmlkIjoiZDg1NjZkZTMtYjFhNi00YTliLWI4NDItOGUzODg3YTgyZTQxIiwiYWRtaW4iOnRydWUsInRydXN0ZWRfbWVtYmVyIjp0cnVlLCJuYmYiOjE3NjM4MDc3MDYsImV4cCI6MTc2MzgzNjUwNiwiaWF0IjoxNzYzODA3NzA2LCJpc3MiOiJodHRwczovL2lkLnNvbWVwcm92aWRlci5jb20iLCJhdWQiOiJodHRwczovL21vdmllcy5zb21lZG9tYWluLmNvbSJ9.n6t7sXm8mtIIO1ULO9zi4b_n_FpBBZiP3cD862yPuRI
 
 ###
@@ -65,6 +66,12 @@ Authorization: Bearer {{AuthToken}}
 # group: Movies
 # @name Get all movies with sort
 GET {{HostUri}}/api/movies?sortBy=yearofrelease
+Authorization: Bearer {{AuthToken}}
+
+###
+# group: Movies
+# @name Get all movies with pagination
+GET {{HostUri}}/api/movies?page=1&pageSize=1
 Authorization: Bearer {{AuthToken}}
 
 ###
