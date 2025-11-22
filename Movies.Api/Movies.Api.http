@@ -1,6 +1,7 @@
 @HostUri = http://localhost:5074
 
 @MovieId = -- ADD ID HERE FOR TESTING --
+@Slug = -- ADD SLUG HERE FOR TESTING --
 
 ###
 # group: Identity
@@ -33,8 +34,13 @@ Content-Type: application/json
 
 ###
 # group: Movies
-# @name Get movie
+# @name Get movie by Id
 GET {{HostUri}}/api/movies/{{MovieId}}
+
+###
+# group: Movies
+# @name Get movie by Slug
+GET {{HostUri}}/api/movies/{{Slug}}
 
 ###
 # group: Movies
