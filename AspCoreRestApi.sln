@@ -8,6 +8,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Movies.Contracts", "Movies.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Identity.Api", "Identity.Api\Identity.Api.csproj", "{BA3D6C47-9C18-4274-92C9-05AC9F2E18E1}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Movies.Api.Sdk", "Movies.Api.Sdk\Movies.Api.Sdk.csproj", "{81274F45-1D2B-4704-8F42-591E9DDA4ED0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Movies.Api.Sdk.Consumer", "Movies.Api.Sdk.Consumer\Movies.Api.Sdk.Consumer.csproj", "{DB8AE777-17BA-476E-901B-D2AF0E339536}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -30,5 +34,13 @@ Global
 		{BA3D6C47-9C18-4274-92C9-05AC9F2E18E1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BA3D6C47-9C18-4274-92C9-05AC9F2E18E1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BA3D6C47-9C18-4274-92C9-05AC9F2E18E1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{81274F45-1D2B-4704-8F42-591E9DDA4ED0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{81274F45-1D2B-4704-8F42-591E9DDA4ED0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{81274F45-1D2B-4704-8F42-591E9DDA4ED0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{81274F45-1D2B-4704-8F42-591E9DDA4ED0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DB8AE777-17BA-476E-901B-D2AF0E339536}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DB8AE777-17BA-476E-901B-D2AF0E339536}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DB8AE777-17BA-476E-901B-D2AF0E339536}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DB8AE777-17BA-476E-901B-D2AF0E339536}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
