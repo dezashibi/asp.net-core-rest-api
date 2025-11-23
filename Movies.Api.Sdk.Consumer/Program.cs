@@ -1,4 +1,5 @@
 ﻿using System.Text.Json;
+using Microsoft.Extensions.DependencyInjection;
 using Movies.Contracts.Requests;
 using Refit;
 
@@ -8,7 +9,15 @@ internal class Program
 {
     private static async Task Main(string[] args)
     {
-        var moviesApi = RestService.For<IMoviesApi>("http://localhost:5074");
+        // var moviesApi = RestService.For<IMoviesApi>("http://localhost:5074");
+
+        var services = new ServiceCollection();
+        services.AddRefitClient<IMoviesApi>()
+            .ConfigureHttpClient(x => x.BaseAddress = new Uri("http://localhost:5074"));
+
+        var provider = services.BuildServiceProvider();
+
+        var moviesApi = provider.GetRequiredService<IMoviesApi>();
 
         var movie = await moviesApi.GetMovieAsync("some-movie-name-2023");
 
