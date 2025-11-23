@@ -9,8 +9,6 @@ internal class Program
 {
     private static async Task Main(string[] args)
     {
-        // var moviesApi = RestService.For<IMoviesApi>("http://localhost:5074");
-
         var services = new ServiceCollection();
         services
             .AddHttpClient()
