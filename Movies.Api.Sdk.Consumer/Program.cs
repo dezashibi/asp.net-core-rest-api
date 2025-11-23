@@ -12,15 +12,19 @@ internal class Program
         // var moviesApi = RestService.For<IMoviesApi>("http://localhost:5074");
 
         var services = new ServiceCollection();
-        services.AddRefitClient<IMoviesApi>()
+        services
+            .AddHttpClient()
+            .AddSingleton<AuthTokenProvider>()
+            .AddRefitClient<IMoviesApi>(s => new RefitSettings
+            {
+                AuthorizationHeaderValueGetter = async (message, token) => await s.GetRequiredService<AuthTokenProvider>().GetTokenAsync()
+            })
             .ConfigureHttpClient(x => x.BaseAddress = new Uri("http://localhost:5074"));
 
         var provider = services.BuildServiceProvider();
-
         var moviesApi = provider.GetRequiredService<IMoviesApi>();
 
         var movie = await moviesApi.GetMovieAsync("some-movie-name-2023");
-
         Console.WriteLine(JsonSerializer.Serialize(movie));
 
         var req = new GetAllMoviesRequest
@@ -31,9 +35,7 @@ internal class Program
             Page = 1,
             PageSize = 3
         };
-
         var movies = await moviesApi.GetMoviesAsync(req);
-
         Console.WriteLine(JsonSerializer.Serialize(movies));
     }
 }
