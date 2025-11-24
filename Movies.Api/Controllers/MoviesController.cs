@@ -83,7 +83,9 @@ public class MoviesController : ControllerBase
             .WithUser(userId);
         var movies = await _movieService.GetAllAsync(options, token);
         var moviesCount = await _movieService.GetCountAsync(options.Title, options.YearOfRelease, token);
-        return Ok(movies.MapToResponse(request.Page, request.PageSize, moviesCount));
+        // return Ok(movies.MapToResponse(request.Page, request.PageSize, moviesCount));
+
+        return Ok();
     }
 
     [ApiVersion(2.0)]
@@ -99,7 +101,9 @@ public class MoviesController : ControllerBase
             .WithUser(userId);
         var movies = await _movieService.GetAllAsync(options, token);
         var moviesCount = await _movieService.GetCountAsync(options.Title, options.YearOfRelease, token);
-        return Ok(movies.MapToResponse(request.Page, request.PageSize, moviesCount));
+        // return Ok(movies.MapToResponse(request.Page, request.PageSize, moviesCount));
+
+        return Ok();
     }
 
     [ApiVersion(1.0)]
