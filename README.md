@@ -9,3 +9,6 @@ Database is docker based postgres can be up and running from the Application pro
 to get a token use Identity project separately.
 
 all the endpoints are in the api folder `.http` file.
+
+
+There is also a minimal api version in this branch: [minimal-api-version](https://github.com/dezashibi/asp.net-core-rest-api/tree/minimal-api-version)
