@@ -29,7 +29,8 @@ public static class GetAllMoviesEndpoint
                     moviesCount
                 ));
             })
-            .WithName(NAME);
+            .WithName(NAME)
+            .RequireAuthorization();
 
         return app;
     }

@@ -26,7 +26,8 @@ public static class UpdateMovieEndpoint
                     ? Results.NotFound()
                     : Results.Ok(updatedMovie.MapToResponse());
             })
-            .WithName(NAME);
+            .WithName(NAME)
+            .RequireAuthorization(AuthConstants.TRUSTED_MEMBER_POLICY_NAME);
 
         return app;
     }

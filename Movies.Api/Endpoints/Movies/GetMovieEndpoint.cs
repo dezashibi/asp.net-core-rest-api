@@ -22,7 +22,8 @@ public static class GetMovieEndpoint
                     ? Results.NotFound()
                     : Results.Ok(movie.MapToResponse());
             })
-            .WithName(NAME);
+            .WithName(NAME)
+            .RequireAuthorization();
 
         return app;
     }

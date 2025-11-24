@@ -1,3 +1,4 @@
+using Movies.Api.Auth;
 using Movies.Api.Mapping;
 using Movies.Application.Services;
 using Movies.Contracts.Requests;
@@ -22,7 +23,8 @@ public static class CreateMovieEndpoint
 
                 return TypedResults.CreatedAtRoute(movie.MapToResponse(), GetMovieEndpoint.NAME, new { idOrSlug = movie.Id });
             })
-            .WithName(NAME);
+            .WithName(NAME)
+            .RequireAuthorization(AuthConstants.TRUSTED_MEMBER_POLICY_NAME);
 
         return app;
     }
